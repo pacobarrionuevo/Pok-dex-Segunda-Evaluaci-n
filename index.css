@@ -1,14 +1,38 @@
-.grid {
+/*.tabla{
+width: 180px    
+}
+.stats{
+    width:(stat/255)%
+}*/
+@font-face {
+    font-family: Pokemon_solid;
+    src: url(imagenes/Pokemon\ Solid.ttf) format('truetype')
+}
+header {
+    font-family: Pokemon_solid;
+    font-size: 50px;
+}
+.tabla {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .stats {
+    width: calc((stat / 255) * 100%);
+  }
+  .grid {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     width: 100%;
     background-color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: capitalize !important;
+    
 }
 
-/* ...TRADUCIR TIPOS // PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL*/
-/* FAVICON POKEBALL o LO QUE QUIERAS / AÑADIR BUSCADOR + TÍTULO (no funcional) */
+/* ...TRADUCIR TIPOS // PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL(etiqueta a en javascript)*/
+/*  AÑADIR BUSCADOR + TÍTULO (no funcional) */
 .pokemonCard {
     height: 550px;
     width: 475px;
