@@ -1,0 +1,153 @@
+.grid {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    width: 100%;
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize !important;
+}
+
+/* ...TRADUCIR TIPOS // PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL*/
+/* FAVICON POKEBALL o LO QUE QUIERAS / AÑADIR BUSCADOR + TÍTULO (no funcional) */
+.pokemonCard {
+    height: 550px;
+    width: 475px;
+    background-image: linear-gradient(to bottom right, burlywood, rgb(203, 140, 58));
+}
+.pokemonCardPlanta {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, limegreen, green);
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardBicho {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(39, 131, 39), rgb(168, 184, 20));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardFuego {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, red, orange, rgb(243, 189, 87));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardAgua {
+    width: 475px;
+    background-image: linear-gradient(to bottom right,  rgb(131, 183, 228), blue, rgb(131, 183, 228));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardHielo {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, lightskyblue, rgb(0, 136, 255));
+    color: black;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardElectrico {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, orange, yellow, rgb(255, 255, 195));
+    color: black;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardTierra {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, darkgoldenrod, rgb(247, 211, 118));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardRoca {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(184, 160, 38), rgb(204, 186, 99));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardLucha {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(62, 16, 16), orange);
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+
+.pokemonCardPsiquico {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(248, 58, 88), pink);
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardVeneno {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(78, 0, 78), rgb(180, 82, 180));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardHada {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(255, 0, 255), rgb(255, 206, 214));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+
+.pokemonCardNormal {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, white, grey);
+    color: black;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardDragon {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, darkcyan, red);
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.pokemonCardFantasma {
+    width: 475px;
+    background-image: linear-gradient(to bottom right, rgb(70,58,98), rgb(180, 82, 180),rgb(70,58,98));
+    color: white;
+    font-size: 25px;
+    border-radius: 9%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
