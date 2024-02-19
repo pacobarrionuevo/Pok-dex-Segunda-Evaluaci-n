@@ -73,24 +73,79 @@ function drawPokemons(pokemons) {
                 pokemonCard.classList.add('pokemonCard');
                 break;
         }
-        //listaPokemon.innerHTML += '<div class="pokemon-card">';
-        pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.name + ' ( '+pokemon.id+' )' + '</div>';
+        pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
         pokemonCard.innerHTML += '<img src=' + pokemon.sprites.other["official-artwork"].front_default + ' style="height=200px; display: grid; margin: 0 auto;">';
         if (pokemon.types.length>1) {
-            pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.types[0].type.name + '/' + pokemon.types[1].type.name +'</div>';
+            pokemonCard.innerHTML += '<div style = "text-align: center;">' + traducirTipo(pokemon.types[0].type.name) + ' / ' + traducirTipo(pokemon.types[1].type.name) +'</div>';
         } else {
-            pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.types[0].type.name + '</div>'
+            pokemonCard.innerHTML += '<div style = "text-align: center;">' + traducirTipo(pokemon.types[0].type.name) + '</div>'
         }
         
         listaPokemon.appendChild(pokemonCard);
-        //listaPokemon.innerHTML += '</div>'
-        
     }
-    
 }
 
 async function getData(url) {
     const response = await fetch(url);
     const json = await response.text();
     return JSON.parse(json);
+}
+
+function traducirTipo(pokemonTipo) {
+    switch (pokemonTipo) {
+        case 'grass':
+            return 'planta';
+            break;
+        case 'bug':
+            return 'bicho';
+            break;
+        case 'fire':
+            return 'fuego';
+            break;
+        case 'water':
+            return 'agua';
+            break;
+        case 'ice':
+            return 'hielo';
+            break;
+        case 'electric':
+            return 'eléctrico';
+            break;
+        case 'ground':
+            return 'tierra';
+        break;
+        case 'rock':
+            return 'roca';
+        break;
+        case 'fighting':
+            return 'lucha';
+            break;
+        case 'steel':
+            return 'acero';;
+            break;
+        case 'psychic':
+            return 'psíquico';
+            break;
+        case 'poison':
+            return 'veneno';
+            break;
+        case 'fairy':
+            return 'hada';
+            break;
+        case 'normal':
+            return 'normal';
+            break;
+        case 'dragon':
+            return 'dragón';
+            break;
+        case 'ghost':
+            return 'fantasma';
+            break;
+        case 'flying':
+            return 'volador';
+            break;
+        default:
+            return 'no tiene tipo';
+            break;
+    }
 }
