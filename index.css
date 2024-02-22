@@ -10,12 +10,19 @@ header {
     text-shadow: 0.1em 0.1em blue;
 }
 .entrada {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.boton {
-    width:200px;
-    height: 50px;
+
+input {
+    padding: 20px 105px 20px 5px;
+    border-radius: 15px 15px 15px 15px;
 }
+::placeholder{
+    text-align: left;
+}
+
 .tabla {
     width: 180px;
     display: flex;
@@ -34,162 +41,65 @@ header {
     text-transform: capitalize !important;
 }
 
-/* ...TRADUCIR TIPOS // PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL*/
-/* FAVICON POKEBALL o LO QUE QUIERAS / AÑADIR BUSCADOR + TÍTULO (no funcional) */
+/*PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL*/
+/* buscador que funcione */
+/*Boton clefable gengar claro oscuro*/
 .pokemonCard {
-    height: 550px;
     width: 475px;
-    background-image: linear-gradient(to bottom right, burlywood, rgb(203, 140, 58));
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    border: 2px black solid ;
+    border-radius: 9%;
+    margin-top: 5%;
+    margin-left: 3%;
+    padding-bottom: 10px;
 }
 .pokemonCardPlanta {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, limegreen, green);
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-left: 3%;
-    padding-bottom: 10px;
-    margin-top: 5%;
+    color: #78C850;
 }
 .pokemonCardBicho {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(39, 131, 39), rgb(168, 184, 20));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #A8B820;
 }
 .pokemonCardFuego {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, red, orange, rgb(243, 189, 87));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #F08030;
 }
 .pokemonCardAgua {
-    width: 475px;
-    background-image: linear-gradient(to bottom right,  rgb(131, 183, 228), blue, rgb(131, 183, 228));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #6890F0;
 }
 .pokemonCardHielo {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, lightskyblue, rgb(0, 136, 255));
-    color: black;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #98D8D8;
 }
 .pokemonCardElectrico {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, orange, yellow, rgb(255, 255, 195));
-    color: black;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #F8D030;
 }
 .pokemonCardTierra {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, darkgoldenrod, rgb(247, 211, 118));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #E0C068;
 }
 .pokemonCardRoca {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(184, 160, 38), rgb(204, 186, 99));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #B8A038;
 }
 .pokemonCardLucha {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(62, 16, 16), orange);
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #C03028;
 }
-
 .pokemonCardPsiquico {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(248, 58, 88), pink);
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #F85888;
 }
 .pokemonCardVeneno {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(78, 0, 78), rgb(180, 82, 180));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #A040A0;
 }
 .pokemonCardHada {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(255, 0, 255), rgb(255, 206, 214));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #F0B6BC;
 }
-
 .pokemonCardNormal {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, white, grey);
-    color: black;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #A8A878;
 }
 .pokemonCardDragon {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, darkcyan, red);
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #7038f8;
 }
 .pokemonCardFantasma {
-    width: 475px;
-    background-image: linear-gradient(to bottom right, rgb(70,58,98), rgb(180, 82, 180),rgb(70,58,98));
-    color: white;
-    font-size: 25px;
-    border-radius: 9%;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding-bottom: 10px;
+    color: #705898;
+}
+.pokemonCardVolador {
+    color: #A890F0;
 }
