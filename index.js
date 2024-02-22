@@ -18,69 +18,15 @@ function drawPokemons(pokemons) {
     const listaPokemon = document.getElementById('lista-pokemon');
     for(const pokemon of pokemons){
         const pokemonCard = document.createElement('div');
-        //HACER UNA FUNCIÓN DONDE GUARDAR ESTO
-        //Objetivo: hacer que si un pokemon tiene doble tipo, una mitad sea de un color y la otra de otro.
-        switch (pokemon.types[0].type.name) {
-            case 'grass':
-                pokemonCard.classList.add('pokemonCardPlanta');
-                break;
-            case 'bug':
-                pokemonCard.classList.add('pokemonCardBicho');
-                break;
-            case 'fire':
-                pokemonCard.classList.add('pokemonCardFuego');
-                break;
-            case 'water':
-                pokemonCard.classList.add('pokemonCardAgua');
-                break;
-            case 'ice':
-                pokemonCard.classList.add('pokemonCardHielo');
-                break;
-            case 'electric':
-                pokemonCard.classList.add('pokemonCardElectrico');
-                break;
-            case 'ground':
-                pokemonCard.classList.add('pokemonCardTierra');
-            break;
-            case 'rock':
-                pokemonCard.classList.add('pokemonCardRoca');
-            break;
-            case 'fighting':
-                pokemonCard.classList.add('pokemonCardLucha');
-                break;
-            case 'steel':
-                pokemonCard.classList.add('pokemonCardAcero');
-                break;
-            case 'psychic':
-                pokemonCard.classList.add('pokemonCardPsiquico');
-                break;
-            case 'poison':
-                pokemonCard.classList.add('pokemonCardVeneno');
-                break;
-            case 'fairy':
-                pokemonCard.classList.add('pokemonCardHada');
-                break;
-            case 'normal':
-                pokemonCard.classList.add('pokemonCardNormal');
-                break;
-            case 'dragon':
-                pokemonCard.classList.add('pokemonCardDragon');
-                break;
-            case 'ghost':
-                pokemonCard.classList.add('pokemonCardFantasma');
-                break;
-            default:
-                pokemonCard.classList.add('pokemonCard');
-                break;
-        }
-        pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
+        pokemonCard.classList.add('pokemonCard');
+        pokemonCard.innerHTML += '<a href="vistaSecundaria.html">';
+        pokemonCard.innerHTML += '<div style = "text-align: center; color: black;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
         pokemonCard.innerHTML += '<img src=' + pokemon.sprites.other["official-artwork"].front_default + ' style="height=200px; display: grid; margin: 0 auto;">';
-        if (pokemon.types.length>1) {
-            pokemonCard.innerHTML += '<div style = "text-align: center;">' + traducirTipo(pokemon.types[0].type.name) + ' / ' + traducirTipo(pokemon.types[1].type.name) +'</div>';
-        } else {
-            pokemonCard.innerHTML += '<div style = "text-align: center;">' + traducirTipo(pokemon.types[0].type.name) + '</div>'
+        pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[0].type.name) +'">' + traducirTipo(pokemon.types[0].type.name) +'</div>';
+        if (pokemon.types.length > 1) {
+            pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[1].type.name) +'">' + traducirTipo(pokemon.types[1].type.name) +'</div>';
         }
-        
+        pokemonCard.innerHTML += '</a>';
         listaPokemon.appendChild(pokemonCard);
     }
 }
@@ -121,7 +67,7 @@ function traducirTipo(pokemonTipo) {
             return 'lucha';
             break;
         case 'steel':
-            return 'acero';;
+            return 'acero';
             break;
         case 'psychic':
             return 'psíquico';
@@ -146,6 +92,64 @@ function traducirTipo(pokemonTipo) {
             break;
         default:
             return 'no tiene tipo';
+            break;
+    }
+}
+
+function cambiarColor(tipo) {
+    switch (tipo) {
+        case 'grass':
+            return 'pokemonCardPlanta';
+            break;
+        case 'bug':
+            return 'pokemonCardBicho';
+            break;
+        case 'fire':
+            return 'pokemonCardFuego';
+            break;
+        case 'water':
+            return 'pokemonCardAgua';
+            break;
+        case 'ice':
+            return 'pokemonCardHielo';
+            break;
+        case 'electric':
+            return 'pokemonCardElectrico';
+            break;
+        case 'ground':
+            return 'pokemonCardTierra';
+        break;
+        case 'rock':
+            return 'pokemonCardRoca';
+        break;
+        case 'fighting':
+            return 'pokemonCardLucha';
+            break;
+        case 'steel':
+            return 'pokemonCardAcero';
+            break;
+        case 'psychic':
+            return 'pokemonCardPsiquico';
+            break;
+        case 'poison':
+            return 'pokemonCardVeneno';
+            break;
+        case 'fairy':
+            return 'pokemonCardHada';
+            break;
+        case 'normal':
+            return 'pokemonCardNormal';
+            break;
+        case 'dragon':
+            return 'pokemonCardDragon';
+            break;
+        case 'ghost':
+            return 'pokemonCardFantasma';
+            break;
+        case 'flying':
+            return 'pokemonCardVolador';
+            break;
+        default:
             break;
     }
 }
