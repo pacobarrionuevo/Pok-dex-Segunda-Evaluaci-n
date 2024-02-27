@@ -9,6 +9,10 @@ header {
     color: yellow;
     text-shadow: 0.1em 0.1em blue;
 }
+body {
+    background-color: #ffffff;
+    color: #000000;
+  }
 .entrada {
     display: flex;
     align-items: center;
@@ -27,11 +31,11 @@ input {
     width: 180px;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .stats {
+}
+
+.stats {
     width: calc((stat / 255) * 100%);
-  }
+}
 .grid {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -102,4 +106,22 @@ input {
 }
 .pokemonCardVolador {
     color: #A890F0;
+}
+
+.modo-oscuro {
+    background-color: #212121;
+    color: #ffffff;
+    border: #ffffff;
+}
+
+#modo-claro-oscuro {
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modo-claro-oscuro:hover {
+    background-color: greenyellow;
 }
