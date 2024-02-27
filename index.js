@@ -1,3 +1,8 @@
+const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+
+botonModoClaroOscuro.addEventListener("click", () => {document.body.classList.toggle("modo-oscuro");});
+//hacer que el boton claroscuro se vea aplique al grid tmb
+
 const arrayPokemonTodos = [];
 
 pokemon();
