@@ -9,10 +9,7 @@ header {
     color: yellow;
     text-shadow: 0.1em 0.1em blue;
 }
-body {
-    background-color: #ffffff;
-    color: #000000;
-  }
+
 .entrada {
     display: flex;
     align-items: center;
@@ -26,7 +23,7 @@ input {
 ::placeholder{
     text-align: left;
 }
-
+/*estas dos de aquí no hacen nada (abajo)*/
 .tabla {
     width: 180px;
     display: flex;
@@ -36,6 +33,32 @@ input {
 .stats {
     width: calc((stat / 255) * 100%);
 }
+/*estas dos de aquí no hacen nada (arriba)*/
+
+.body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize !important;
+    background-color: #ffffff;
+}
+
+.modo-oscuro {
+    background-color: #212121;
+    color: #ffffff;
+    border: #ffffff;
+}
+
+#modo-claro-oscuro {
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modo-claro-oscuro:hover {
+    background-color: orange;
+}
+
 .grid {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -44,16 +67,35 @@ input {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: capitalize !important;
 }
+.modo-oscuro .grid {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    width: 100%;
+    background-color: #212121;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize !important;
+} 
 
 /*PREGUNTAR COMO CONECTAR VISTA POKEMON CON VISTA GLOBAL*/
 /* buscador que funcione */
-/*Boton clefable gengar claro oscuro*/
+
 .pokemonCard {
     width: 475px;
     background-color: white;
-    color: black;
     font-size: 25px;
-    border: 2px black solid ;
+    color: #212121;
+    border: 2px #212121 solid ;
+    border-radius: 9%;
+    margin-top: 5%;
+    margin-left: 3%;
+    padding-bottom: 10px;
+}
+.modo-oscuro .pokemonCard {
+    width: 475px;
+    background-color: #212121;
+    font-size: 25px;
+    border: 2px white solid;
+    color: #FFFFFF;
     border-radius: 9%;
     margin-top: 5%;
     margin-left: 3%;
@@ -108,20 +150,4 @@ input {
     color: #A890F0;
 }
 
-.modo-oscuro {
-    background-color: #212121;
-    color: #ffffff;
-    border: #ffffff;
-}
 
-#modo-claro-oscuro {
-    margin: 10px;
-    padding: 5px 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#modo-claro-oscuro:hover {
-    background-color: greenyellow;
-}
