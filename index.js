@@ -1,8 +1,3 @@
-const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
-
-botonModoClaroOscuro.addEventListener("click", () => {document.body.classList.toggle("modo-oscuro");});
-//hacer que el boton claroscuro se vea aplique al grid tmb
-
 const arrayPokemonTodos = [];
 
 pokemon();
@@ -25,7 +20,7 @@ function drawPokemons(pokemons) {
         const pokemonCard = document.createElement('div');
         pokemonCard.classList.add('pokemonCard');
         pokemonCard.innerHTML += '<a href="vistaSecundaria.html">';
-        pokemonCard.innerHTML += '<div style = "text-align: center; color: black;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
+        pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
         pokemonCard.innerHTML += '<img src=' + pokemon.sprites.other["official-artwork"].front_default + ' style="height=200px; display: grid; margin: 0 auto;">';
         pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[0].type.name) +'">' + traducirTipo(pokemon.types[0].type.name) +'</div>';
         if (pokemon.types.length > 1) {
@@ -158,3 +153,7 @@ function cambiarColor(tipo) {
             break;
     }
 }
+
+const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+
+botonModoClaroOscuro.addEventListener("click", () => {document.body.classList.toggle("modo-oscuro");});
