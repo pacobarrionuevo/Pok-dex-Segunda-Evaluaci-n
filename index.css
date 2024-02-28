@@ -8,6 +8,7 @@ header {
     text-align: center;
     color: yellow;
     text-shadow: 0.1em 0.1em blue;
+    background-color: red;
 }
 
 .entrada {
