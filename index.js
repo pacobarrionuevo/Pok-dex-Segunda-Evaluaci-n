@@ -19,8 +19,8 @@ function drawPokemons(pokemons) {
     for(const pokemon of pokemons){
         const pokemonCard = document.createElement('div');
         pokemonCard.classList.add('pokemonCard');
-        pokemonCard.innerHTML += '<a href="vistaSecundaria.html">';
-        pokemonCard.innerHTML += '<div style = "text-align: center;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
+        pokemonCard.innerHTML += '<a href="vistainterna.html">'+'<div style = "text-align: center;">' + pokemon.name + ' ('+pokemon.id+')' + '</div>';
+
         pokemonCard.innerHTML += '<img src=' + pokemon.sprites.other["official-artwork"].front_default + ' style="height=200px; display: grid; margin: 0 auto;">';
         pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[0].type.name) +'">' + traducirTipo(pokemon.types[0].type.name) +'</div>';
         if (pokemon.types.length > 1) {
@@ -153,6 +153,10 @@ function cambiarColor(tipo) {
             break;
     }
 }
+
+const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+
+botonModoClaroOscuro.addEventListener("click", () => {document.body.classList.toggle("modo-oscuro");});
 
 const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
 
