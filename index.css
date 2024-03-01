@@ -150,8 +150,28 @@ input {
 .pokemonCardVolador {
     color: #A890F0;
 }
+@media (min-width: 2000px) {
+    .grid {
+        grid-template-columns:repeat(4, 1fr);
+    }
+    .pokemonCard {
+        margin-left: 3%;
+    }
+}
+
+@media (max-width: 2200px) {
+    .grid {
+        grid-template-columns:repeat(4, 1fr);
+    }
+    .pokemonCard {
+        margin-left: 3%;
+    }
+}
 
 @media (max-width: 1955px) {
+    .grid {
+        grid-template-columns:repeat(3, 1fr);
+    }
     .pokemonCard {
         margin-left: 3%;
     }
