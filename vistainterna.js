@@ -3,20 +3,20 @@ import { traducirTipo as _traducirTipo } from "./traducirTipo.js";
     const pokemonURL = new URLSearchParams(window.location.search);
     const id = pokemonURL.get('id');
 
-    getPokemonData(32);
-
+    getPokemonData(id);
+    //Descripcion(id)
     const listaPokemon = document.getElementById("lista-pokemon");
     async function getData(url) {
         const response = await fetch (url);
         const json = await response.text();
         return JSON.parse(json);
     }
+    
     async function getPokemonData(id) {   
         const obj = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
         const responseSpecies = await fetch(urlSpecies);
-        const species = await responseSpecies.json(); 
-        const pokemon = await descripcionEspecifica(id);
+        
         listaPokemon.classList.add('float');
         listaPokemon.innerHTML += '<div class = "centrar">';
         listaPokemon.innerHTML +=  '<div style = "text-align: center;font-size:50px">' + obj.name+ '<div>';
@@ -64,6 +64,34 @@ import { traducirTipo as _traducirTipo } from "./traducirTipo.js";
     listaPokemon.innerHTML +='</div>';
     
 }    
+
+/*async function getDescripcionPokedex(id){
+    const dataSpecies = (`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+    const descripcion = getTraduccionPokedex(id);
+    return descripcion;
+}
+async function getTraduccionPokedex(id){
+const obj = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+for(let descripcion of obj.flavor_text_entries){
+    if(descripcion.language.name=='es'){
+        return descripcion.flavor_text
+    }
+}}*/
+/*async function descripcionEspecifica(id) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+    const pokemonJson = await response.text();
+    const obj = JSON.parse(pokemonJson);
+    return obj; 
+}
+function Descripcion(pokemon){
+    const descripcion = document.getElementById("descripcion");
+    descripcion.innerHTML = `${pokemon.flavor_text_entries[26].flavor_text}`;
+}*/
+    const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+    botonModoClaroOscuro.addEventListener("click", () => {
+    document.body.classList.toggle("modo-oscuro");
+    });
+        ;
 
 /*async function getDescripcionPokedex(id){
     const dataSpecies = (`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
