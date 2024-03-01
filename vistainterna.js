@@ -3,7 +3,7 @@ import { traducirTipo as _traducirTipo } from "./traducirTipo.js";
     const pokemonURL = new URLSearchParams(window.location.search);
     const id = pokemonURL.get('id');
 
-    getPokemonData(54);
+    getPokemonData(32);
 
     const listaPokemon = document.getElementById("lista-pokemon");
     async function getData(url) {
@@ -92,11 +92,3 @@ function Descripcion(pokemon){
     document.body.classList.toggle("modo-oscuro");
     });
         ;
-      }
-      
-const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
-
-botonModoClaroOscuro.addEventListener("click", () => {
-  document.body.classList.toggle("modo-oscuro");
-}            
-)} 
