@@ -23,16 +23,15 @@ function drawPokemons(pokemons) {
     for(const pokemon of pokemons){
         const pokemonCard = document.createElement('div');
         pokemonCard.classList.add('pokemonCard');
-        pokemonCard.innerHTML += `<a id="linkPokemon" href="vistainterna.html">`;
-        pokemonCard.innerHTML += `<img id="imagen" style="height=200px; display: grid; margin: 0 auto;" src="${pokemon.sprites.other["official-artwork"].front_default}">`;
-        pokemonCard.innerHTML += `<h2 id="nombre" style = "text-align: center;">${pokemon.name}</h2>`;
-        pokemonCard.innerHTML += `</a>`;
+        pokemonCard.innerHTML += `<a href="vistainterna.html">
+        <img id="imagen" style="height=200px; display: grid; margin: 0 auto;" src="${pokemon.sprites.other["official-artwork"].front_default}">
+        <div id="nombre" style = "text-align: center;">${pokemon.name}</div>
+        </a>`;
         pokemonCard.innerHTML += `<p id="codigo" style = "text-align: center;">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>`;     
         pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[0].type.name) +'">' + _traducirTipo(pokemon.types[0].type.name) +'</div>';
         if (pokemon.types.length > 1) {
             pokemonCard.innerHTML += '<div style = "text-align: center;" class="'+ cambiarColor(pokemon.types[1].type.name) +'">' + _traducirTipo(pokemon.types[1].type.name) +'</div>';
         }
-        pokemonCard.innerHTML += '</a>';
         listaPokemon.appendChild(pokemonCard);
     }
 }
@@ -106,4 +105,9 @@ buscador.addEventListener('input', () => {
     const pokemonEncontrados = arrayPokemonTodos.filter(pokemon => pokemon.name.includes(searchText) || pokemon.id.toString().includes(searchText));
     console.log('Pokémon filtrados:', pokemonEncontrados);
     drawPokemons(pokemonEncontrados);
+});
+
+const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+botonModoClaroOscuro.addEventListener("click", () => {
+document.body.classList.toggle("modo-oscuro");
 });
