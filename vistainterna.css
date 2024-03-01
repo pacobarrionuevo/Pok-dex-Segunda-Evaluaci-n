@@ -1,0 +1,38 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize !important;
+    background-image: url("imagenes/kanto.jpg"); 
+}
+.modo-oscuro {
+    background-color: #212121;
+    color: #ffffff;
+    border: #ffffff;
+    background-image: url("imagenes/gengar.jpg");
+}
+
+#modo-claro-oscuro {
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#modo-claro-oscuro:hover {
+    background-color: orange;
+}
+.float { 
+    float: center;
+    height: 600px; 
+    width: 450px; 
+    background-image:linear-gradient(red,purple,purple,blue); 
+    padding: 20px; 
+    margin: 0 auto;
+    align-items: center;
+    
+  } 
+  .hide {
+    display: none !important;
+}
+/*nqjdnecd*/
