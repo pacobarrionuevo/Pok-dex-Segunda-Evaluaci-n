@@ -1,125 +1,97 @@
-getPokemonData(3);
-const listaPokemon = document.getElementById("lista-pokemon");
-async function getData(url) {
-    const response = await fetch (url);
-    const json = await response.text();
-    return JSON.parse(json);
-}
-async function getPokemonData(id) {
-    const obj = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    console.log(obj);
-    listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.name+ '<div>';
-    listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.weight/10+ 'Kg <div>';
-    listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.height/10+ 'm<div>';
-    listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.order+ '<div>';
-    listaPokemon.innerHTML += '<center><img src= '+ obj.sprites.other["official-artwork"].front_default+'></center>';
-    if (obj.types.length>1) {
-        listaPokemon.innerHTML += '<div style = "text-align: center;">' + obj.types[0].type.name + '/' + obj.types[1].type.name +'<div>';
-    } else {
-        listaPokemon.innerHTML += '<div style = "text-align: center;">' + obj.types[0].type.name + '<div>'
+import { traducirTipo as _traducirTipo } from "./traducirTipo.js";
+
+    const pokemonURL = new URLSearchParams(window.location.search);
+    const id = pokemonURL.get('id');
+
+    getPokemonData(54);
+
+    const listaPokemon = document.getElementById("lista-pokemon");
+    async function getData(url) {
+        const response = await fetch (url);
+        const json = await response.text();
+        return JSON.parse(json);
     }
-    listaPokemon.innerHTML += '<br>';
-    for (let i = 0; i < 6; i++) {
-        listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.stats[i].base_stat+ '</div style = "width: 180px; width:(/255)%>"';
-    }
-    const elementoVistaInterna = document.getElementById("vista-interna-pokemon");
-    elementoVistaInterna.innerHTML += `
-    <div className='container-stats'>
-    <h1>Estadísticas</h1>
-    <div className='stats'>
-        <div className='stat-group'>
-            <div>Vida</div>
-            <div className='progress-bar'></div>
-            <div className='counter-stat'>
-             +{obj.stats[0].base_stat}+
-            </div>
-        </div>
-        <div className='stat-group'>
-            <div>Ataque</div>
-            <div className='progress-bar'></div>
-            <div className='counter-stat'>
-            {obj.stats[1].base_stat}
-            </div>
-        </div>
-        <div className='stat-group'>
-            <div>Defensa</div>
-            <div className='progress-bar'></div>
-            <div className='counter-stat'>
-                {obj.stats[2].base_stat}
-            </div>
-        </div>
-        <div className='stat-group'>
-            <div>Ataque Especial</div>
-            <div className='progress-bar'></div>
-            <div className='counter-stat'>
-                {obj.stats[3].base_stat}
-            </div>
-        </div>
-        <div className='stat-group'>
-            <div>Defensa Especial</div>
-            <div className='progress-bar'></div>
-            <div className='counter-stat'>
-                {obj.stats[4].base_stat}
-            </div>
-        </div>
-        <div className='stat-group'>
-        <div>Velocidad</div>
-        <div className='progress-bar'></div>
-        <div className='counter-stat'>
-            +{obj.stats[5].base_stat}+
-        </div>
-    </div>
-        </div>
-    </div>
-    </div>
-    }
-    `;
-    function setupEvolutionChain(evolutionChain) {
-        const chain = evolutionChain.chain
-        const chainContainer =  document.getElementById('current-pokemon-evolution-chain-container')
-        const chainImages = [document.getElementById('current-pokemon-evolution-0'), document.getElementById('current-pokemon-evolution-1'), document.getElementById('current-pokemon-evolution-2')]
-        const chainLevels = [document.getElementById('current-pokemon-evolution-level-0'), document.getElementById('current-pokemon-evolution-level-1')]
-    
-        if(chain.evolves_to.length != 0) {
-            chainContainer.classList.remove('hide');
-    
-            setupEvolution(chain, 0);
-    
-            if(chain.evolves_to[0].evolves_to.length != 0) {
-                setupEvolution(chain.evolves_to[0], 1);
-    
-                chainImages[2].classList.remove('hide');
-                chainLevels[1].classList.remove('hide');
-            } else {
-                chainImages[2].classList.add('hide');
-                chainLevels[1].classList.add('hide');
-            };
+    async function getPokemonData(id) {   
+        const obj = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+        const responseSpecies = await fetch(urlSpecies);
+        const species = await responseSpecies.json(); 
+        const pokemon = await descripcionEspecifica(id);
+        listaPokemon.classList.add('float');
+        listaPokemon.innerHTML += '<div class = "centrar">';
+        listaPokemon.innerHTML +=  '<div style = "text-align: center;font-size:50px">' + obj.name+ '<div>';
+        listaPokemon.innerHTML +=  '<div style = "text-align: center;opacity:0.4">N°' + obj.id+ '<div>';
+        listaPokemon.innerHTML += '<img src=' + obj.sprites.other.showdown.front_default + ' style="height=200px; display: grid; margin: 0 auto;">';
+        listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.weight/10+ 'Kg <div>';
+        listaPokemon.innerHTML +=  '<div style = "text-align: center;">' + obj.height/10+ 'm<div>';
+        if (obj.types.length>1) {
+            listaPokemon.innerHTML += '<div style = "text-align: center;">' + _traducirTipo(obj.types[0].type.name) + '/' + _traducirTipo(obj.types[1].type.name) +'<div>';
         } else {
-            chainContainer.classList.add('hide');
-        };
-    };
-    async function getCadenaEvolutiva(id) {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-        const data = await response.json();
-      
-        const cadenaEvolutiva = data.evolution_chain;
-      
-        
-        const cadenaEvolutivaData = [];
-        let currentChain = evolutionChain.chain;
-        while (currentChain) {
-          const speciesData = await getPokemonData(currentChain.species.name);
-      
-          evolutionChainData.push({
-            species: speciesData,
-            isBaby: currentChain.is_baby,
-            evolutionDetails: currentChain.evolution_details,
-          });
-      
-          currentChain = currentChain.evolves_to[0];
+            listaPokemon.innerHTML += '<div style = "text-align: center;">' + _traducirTipo(obj.types[0].type.name) + '<div>'
         }
-      
-        return evolutionChainData;
+        listaPokemon.innerHTML += '<br>';
+        listaPokemon.innerHTML += `
+        <div style = "text-align: center;"><h1>Estadísticas</h1></div>
+                <div style = "text-align: center;">Vida</div>
+                <div style = "text-align: center;">
+                <progress value="${obj.stats[0].base_stat}" max="255"></progress>
+                ${obj.stats[0].base_stat}
+                </div>
+                <div style = "text-align: center;">Ataque</div>
+                <div style = "text-align: center;">
+                <progress value="${obj.stats[1].base_stat}" max="255"></progress>
+                ${obj.stats[1].base_stat}
+                </div>
+                <div style = "text-align: center;">Defensa</div>
+                <div style = "text-align: center;">
+                <progress value="${obj.stats[2].base_stat}" max="255"></progress>
+                    ${obj.stats[2].base_stat}
+                </div> 
+                <div style = "text-align: center;">Ataque Especial</div>
+                <div style = "text-align: center;">
+                <progress value="${obj.stats[3].base_stat}" max="255"></progress>
+                    ${obj.stats[3].base_stat}
+                </div> 
+                <div style = "text-align: center;">Defensa Especial</div>
+                <div style = "text-align: center;">
+                    <progress value="${obj.stats[4].base_stat}" max="255"></progress>
+                    ${obj.stats[4].base_stat}
+                </div>
+            <div style = "text-align: center;">Velocidad</div>
+            <div style = "text-align: center;">
+            <progress value="${obj.stats[5].base_stat}" max="255"></progress>
+                ${obj.stats[5].base_stat}`; 
+    listaPokemon.innerHTML +='</div>';
+    
+}    
+
+/*async function getDescripcionPokedex(id){
+    const dataSpecies = (`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+    const descripcion = getTraduccionPokedex(id);
+    return descripcion;
+}
+async function getTraduccionPokedex(id){
+const obj = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+for(let descripcion of obj.flavor_text_entries){
+    if(descripcion.language.name=='es'){
+        return descripcion.flavor_text
+    }
+}*/
+async function descripcionEspecifica(id) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+    const pokemonJson = await response.text();
+    const obj = JSON.parse(pokemonJson);
+    return obj; 
+}
+function Descripcion(pokemon){
+    const descripcion = document.getElementById("descripcion");
+    descripcion.innerHTML = `${pokemon.flavor_text_entries[26].flavor_text}`;
+}
+    const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
+    botonModoClaroOscuro.addEventListener("click", () => {
+    document.body.classList.toggle("modo-oscuro");
+    });
+        ;
       }
       
 const botonModoClaroOscuro = document.getElementById("modo-claro-oscuro");
