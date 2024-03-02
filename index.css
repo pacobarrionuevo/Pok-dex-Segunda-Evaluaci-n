@@ -154,7 +154,13 @@ input {
     .grid {
         grid-template-columns:repeat(4, 1fr);
     }
+    .modo-oscuro .grid {
+        grid-template-columns:repeat(4, 1fr);
+    }
     .pokemonCard {
+        margin-left: 3%;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 3%;
     }
 }
@@ -163,7 +169,13 @@ input {
     .grid {
         grid-template-columns:repeat(4, 1fr);
     }
+    .modo-oscuro .grid {
+        grid-template-columns:repeat(4, 1fr);
+    }
     .pokemonCard {
+        margin-left: 3%;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 3%;
     }
 }
@@ -172,7 +184,13 @@ input {
     .grid {
         grid-template-columns:repeat(3, 1fr);
     }
+    .modo-oscuro .grid {
+        grid-template-columns:repeat(3, 1fr);
+    }
     .pokemonCard {
+        margin-left: 3%;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 3%;
     }
 }
@@ -181,7 +199,13 @@ input {
     .grid {
         grid-template-columns:repeat(2, 1fr);
     }
+    .modo-oscuro .grid {
+        grid-template-columns:repeat(2, 1fr);
+    }
     .pokemonCard {
+        margin-left: 15%;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 15%;
     }
 }
@@ -190,7 +214,13 @@ input {
     .grid {
         grid-template-columns:repeat(1, 1fr);
     }
+    .modo-oscuro .grid {
+        grid-template-columns:repeat(1, 1fr);
+    }
     .pokemonCard {
+        margin-left: 30%;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 30%;
     }
 }
@@ -199,16 +229,26 @@ input {
     .pokemonCard {
         margin-left: 20%;
     }
+    .modo-oscuro .pokemonCard {
+        margin-left: 20%;
+    }
 }
 
 @media (max-width: 700px) {
     .pokemonCard {
         margin-left: 10%;
     }
+    .modo-oscuro .pokemonCard {
+        margin-left: 10%;
+    }
 }
 
 @media (max-width: 650px) {
     .pokemonCard {
+        margin-left: 0px;
+        width: 460px;
+    }
+    .modo-oscuro .pokemonCard {
         margin-left: 0px;
         width: 460px;
     }
